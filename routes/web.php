@@ -14,3 +14,11 @@ use App\Http\Controllers\PageController;
 */
 
 Route::get('/', [PageController::class, 'main']);
+Route::get('about', [PageController::class, 'about'])->name('about');
+Route::get('service', [PageController::class, 'service'])->name('service');
+Route::get('project', [PageController::class, 'project'])->name('project');
+//Route::get('/welcome', [PageController::class, 'welcome']);
+//Route::view('/
+
+
+
