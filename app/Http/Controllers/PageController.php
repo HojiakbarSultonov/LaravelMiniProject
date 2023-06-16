@@ -20,6 +20,9 @@ class PageController extends Controller
         public function project()
         {
              return view('project');
+        } public function contact()
+        {
+             return view('contact');
         }
 
 }
