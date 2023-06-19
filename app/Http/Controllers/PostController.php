@@ -33,8 +33,11 @@ class PostController extends Controller
 //        $post ->title = 'Ozgargan title';
 //        $post ->save();
 
-        $post = Post::where('id', 2)->first();
-        $post ->delete();
+//        $post = Post::where('id', 2)->first();
+//        $post ->delete();
+
+        $posts = Post::all();
+        return view('posts.index')->with('posts', $posts);
 
     return 'successs';
     }
@@ -52,9 +55,14 @@ class PostController extends Controller
     }
 
 
-    public function show(string $id)
+    public function show(Post $post)
     {
-        //
+//        $post = Post::find($id);
+       return view('posts.show')->with([
+           'post'=> $post,
+           'recent_posts'=>Post::latest()->get()->except($post->id)->take(5),
+
+       ]);
     }
 
 
