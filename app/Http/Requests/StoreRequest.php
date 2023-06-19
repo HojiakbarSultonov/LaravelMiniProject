@@ -31,7 +31,7 @@ class StoreRequest extends FormRequest
             'title'=> 'required|max:255',
             'short_content'=> 'required',
             'content'=> 'required',
-            'photo'=>'nullable|image|max:2*1024',
+            'photo'=>'nullable|image|max:2048',
         ];
     }
 }
