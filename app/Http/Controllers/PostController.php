@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreRequest;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
@@ -45,13 +46,19 @@ class PostController extends Controller
 
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+      $post = Post::create([
+          'title'=>$request->title,
+          'short_content'=>$request->short_content,
+          'content'=>$request->content,
+
+      ]);
+      return redirect()->route('posts.index');
     }
 
 

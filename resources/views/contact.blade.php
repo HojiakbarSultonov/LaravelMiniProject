@@ -9,8 +9,8 @@
 
 
 <!-- Contact Start -->
-<div class="container-fluid py-5">
-    <div class="container">
+{{--<div class="container-fluid py-5">--}}
+{{--    <div class="container">--}}
         <div class="row align-items-end mb-4">
             <div class="col-lg-6">
                 <h6 class="text-secondary font-weight-semi-bold text-uppercase mb-3">Contact Us</h6>
@@ -58,7 +58,7 @@
             </div>
         </div>
     </div>
-</div>
+{{--</div>--}}
 <!-- Contact End -->
 
 </x-layouts.main>
