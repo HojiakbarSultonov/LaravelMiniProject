@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="mb-5">
-                        <img class="img-fluid rounded w-100 mb-4" src="/img/carousel-1.jpg" alt="Image">
+                        <img class="img-fluid rounded w-100 mb-4" src="{{asset('storage/'.$post->photo)}}" alt="Image">
                         <p>Sadipscing labore amet rebum est et justo gubergren. Et eirmod ipsum sit diam ut magna lorem.
                             Nonumy vero labore lorem sanctus rebum et lorem magna kasd, stet amet magna accusam
                             consetetur

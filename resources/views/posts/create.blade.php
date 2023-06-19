@@ -21,7 +21,7 @@
 {{--                        </ul>--}}
 {{--                    </div>--}}
 {{--                @endif--}}
-                <form action="{{route('posts.store')}}" method="POST">
+                <form action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="control-group">
                         <input type="text" class="form-control p-4" name="title" placeholder="Sarlavha" value="{{old('title')}}"  data-validation-required-message="Please enter a subject" />
@@ -29,10 +29,12 @@
                         <p class="help-block text-danger">{{$message}}</p>
                         @enderror
                     </div>
-{{--                    <div class="control-group">--}}
-{{--                        <input type="file" class="form-control p-4" id="subject" placeholder="Rasm" required="required" data-validation-required-message="Please enter a subject" />--}}
-{{--                        <p class="help-block text-danger"></p>--}}
-{{--                    </div>--}}
+                    <div class="control-group">
+                        <input type="file" name="photo" class="form-control p-4" id="subject" placeholder="Rasm" required="required" data-validation-required-message="Please enter a subject" />
+                        @error('photo')
+                        <p class="help-block text-danger">{{$message}}</p>
+                        @enderror
+                    </div>
                     <div class="control-group">
                         <textarea class="form-control p-4" rows="3" name="short_content" placeholder="Qisqacha"  >{{old('short_content')}}</textarea>
                         @error('short_content')

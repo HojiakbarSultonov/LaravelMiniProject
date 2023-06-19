@@ -52,10 +52,19 @@ class PostController extends Controller
 
     public function store(StoreRequest $request)
     {
-      $post = Post::create([
+        if($request->hasFile('photo')){{
+            $name = $request->file('photo')->getClientOriginalName();
+            $path = $request->file('photo')->storeAs('post-photos', $name);
+
+
+        }}
+
+
+        $post = Post::create([
           'title'=>$request->title,
           'short_content'=>$request->short_content,
           'content'=>$request->content,
+          'photo'=>$path
 
       ]);
       return redirect()->route('posts.index');
