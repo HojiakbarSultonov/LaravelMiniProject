@@ -38,10 +38,11 @@ class PostController extends Controller
 //        $post = Post::where('id', 2)->first();
 //        $post ->delete();
 
-        $posts = Post::all();
-        return view('posts.index')->with('posts', $posts);
+        $posts = Post::paginate(3);
 
-    return 'successs';
+        return view('posts.index')->with('posts', $posts);
+            return 'successs';
+
     }
 
 
@@ -101,15 +102,16 @@ class PostController extends Controller
         $post->update([
             'title'=>$request->title,
             'short_content'=>$request->short_content,
-            'content'=>$request->content,
+           'content'=>$request->content,
             'photo'=>$path ?? null
         ]);
        return redirect()->route('posts.show', ['post'=>$post->id]);
     }
 
 
-    public function destroy(string $id)
+    public function destroy(Post $post)
     {
-
+        $post->delete();
+        return redirect()->route('posts.index');
     }
 }
